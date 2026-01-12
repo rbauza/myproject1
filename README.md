@@ -1,58 +1,65 @@
-<h1>JWipe - Disk Sanitization</h1>
-
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
+<h1>Digital Forensics - Archive File Analysis</h1>
 
 <h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
+Forensic investigation of a suspicious compressed archive file requiring secure extraction, content analysis, and metadata examination. This project demonstrates proper evidence handling, file enumeration, and data recovery using an isolated virtual environment to prevent potential system compromise.
 <br />
 
+<h2>Investigation Objectives</h2>
 
-<h2>Languages and Utilities Used</h2>
+- Enumerate all files within the archive
+- Recover sensitive/hidden data
+- Identify file creator (user attribution)
+- Establish file creation timeline (UTC)
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
+<h2>Tools and Utilities Used</h2>
 
-<h2>Environments Used </h2>
+- <b>Windows 11 Virtual Machine (VirtualBox)</b>
+- <b>File Explorer</b> - Archive extraction and file enumeration
+- <b>Notepad</b> - File content examination
+- <b>Windows File Properties</b> - Metadata analysis
 
-- <b>Windows 10</b> (21H2)
+<h2>Environments Used</h2>
 
-<h2>Program walk-through:</h2>
+- <b>Windows 11</b> (Isolated VM environment)
+- <b>VirtualBox</b> - Virtualization platform for secure analysis
+
+<h2>Investigation Walk-through:</h2>
 
 <p align="center">
-Launch the utility: <br/>
-<img src="https://i.imgur.com/62TgaWL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Extract the suspicious archive file in isolated environment: <br/>
+<img src="https://imgur.com/a/vAXDPwO" height="80%" width="80%" alt="Archive Analysis Steps"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Enumerate files within the extracted "secrets" directory:  <br/>
+<img src="https://imgur.com/YCZArKj" height="80%" width="80%" alt="Archive Analysis Steps"/>
 <br />
 <br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Review "note" file for additional intelligence:  <br/>
+<img src="https://i.imgur.com/XXXXXXX4.png" height="80%" width="80%" alt="Archive Analysis Steps"/>
 <br />
 <br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+<h2>Key Findings</h2>
+
+- <b>Files in Archive:</b> 2 files identified (flag, note)
+- <b>Sensitive Data Recovered:</b> SKY-LRDA-9420
+- <b>File Creator:</b> [Identified via metadata analysis]
+- <b>Creation Timestamp:</b> [UTC timestamp from file properties]
+
+<h2>Skills Demonstrated</h2>
+
+- Digital forensics and file analysis
+- Secure isolated environment configuration
+- Evidence preservation and systematic enumeration
+- Data recovery from compressed archives
+- File content examination and documentation
+
+<h2>Real-World SOC Applications</h2>
+
+This investigation workflow directly applies to:
+- <b>Phishing Response:</b> Analyzing suspicious email attachments safely
+- <b>Malware Triage:</b> Safe extraction and examination of potentially malicious archives
+- <b>Incident Response:</b> Evidence collection and data recovery from compromised systems
+- <b>Threat Hunting:</b> Identifying hidden or obfuscated files in compressed archives
+- <b>Digital Forensics:</b> Maintaining chain of custody during file analysis
